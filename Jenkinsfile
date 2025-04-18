@@ -60,7 +60,7 @@ pipeline {
         }
         stage('Deploy'){
             steps{
-                withAWS(region: 'us-east-1', credentials: "aws-creds-${environment}") {
+                withAWS(region: 'us-east-1', credentials: "aws-creds-terraform") {
                     sh """
                         aws eks update-kubeconfig --region ${region} --name expense-dev
                         cd helm
